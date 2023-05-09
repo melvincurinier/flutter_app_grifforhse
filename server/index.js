@@ -19,6 +19,6 @@ mongoose
         console.log(error);
     });
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
     console.log(`Serveur sur le port ${PORT}`);
 });
