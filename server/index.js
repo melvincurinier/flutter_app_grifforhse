@@ -1,20 +1,24 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const PORT = 3000;
+const authRouter = require("./routes/auth");
 
+const PORT = 3000;
+const app = express();
 const db = "mongodb+srv://melvincurinier:Bk1LSaiSnUIGN7YI@bddmdl.cfed4j1.mongodb.net/?retryWrites=true&w=majority"
 
-const app = express();
+
+app.use(express.json());
+app.use(authRouter);
 
 mongoose
     .connect(db)
     .then(() => {
-        console.log('Connection Succesful');
+        console.log('La connexion est un succès');
     })
     .catch((error) =>{
         console.log(error);
     });
 
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`Serveur sur le port ${PORT}`);
 });
