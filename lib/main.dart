@@ -2,12 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_grifforhse/pages/home/home.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MyAPP());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyAPP extends StatefulWidget {
+  const MyAPP({super.key});
 
+  @override
+  State<MyAPP> createState() => _MyAPPState();
+}
+
+class _MyAPPState extends State<MyAPP> {
+
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
