@@ -18,9 +18,9 @@ class _HomePageState extends State<HomePage> {
   ];
 
   final List<String> _cardTexts = [
-    'Carte 1',
-    'Carte 2',
-    'Carte 3',
+    'Sur votre lieux de travail: Les zones sales sont elles séparé des zones propres ?',
+    'L\'accès au local poubelle passe-t-il par les cuisines ?',
+    'Les sanitaires des clients sont-ils différents de ceux du personel ?',
   ];
 
   void _showNextCard() {
@@ -41,12 +41,12 @@ class _HomePageState extends State<HomePage> {
             height: 500,
             width: 400,
             margin: EdgeInsets.only(top: 30),
-            color: Colors.pink[100],
+            color: _cardColors[_cardIndex],
             child: Center(
               child: Padding(
                 padding: EdgeInsets.all(20),
                 child: Text(
-                  'Sur votre lieu de Travail : Les zones sales (plonges par exemple) sont elles séparé des zones propres ?',
+                  _cardTexts[_cardIndex],
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
