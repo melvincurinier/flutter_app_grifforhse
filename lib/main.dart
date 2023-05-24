@@ -25,6 +25,8 @@ class MyAPP extends StatefulWidget {
 class _MyAPPState extends State<MyAPP> {
   int _currentIndex = 0;
 
+  List<Widget> _children = [HomePage(), ResultPage(), ProfilePage()];
+
   setCurrentIndex(int index) {
     setState(() {
       _currentIndex = index;
@@ -38,7 +40,10 @@ class _MyAPPState extends State<MyAPP> {
       appBar: AppBar(
         title: Text("GrifforHSE"),
       ),
-      body: [HomePage(), ResultPage(), ProfilePage()][_currentIndex],
+      body: IndexedStack(
+        index: _currentIndex,
+        children: _children,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) => setCurrentIndex(index),
