@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_app_grifforhse/pages/resultats/user_score.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -43,6 +45,7 @@ class _HomePageState extends State<HomePage> {
 
   void _showNextCardLike() {
     _scoreUser = _scoreUser + _cardValue[_cardIndex];
+    Provider.of<UserScore>(context, listen: false).updateScore(_scoreUser);
       setState(() {
         if(_cardIndex <= _cardColors.length - 2)
         _cardIndex = (_cardIndex + 1);

@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:flutter_app_grifforhse/pages/home/home.dart';
 import 'package:flutter_app_grifforhse/pages/resultats/resultats.dart';
 import 'package:flutter_app_grifforhse/pages/profile/profile.dart';
+import 'package:flutter_app_grifforhse/pages/resultats/user_score.dart';
 
 void main() {
-  runApp(MyAPP());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => UserScore(),
+      child: MyAPP(),
+    ),
+  );
 }
 
 class MyAPP extends StatefulWidget {
