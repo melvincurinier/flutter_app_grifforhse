@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_app_grifforhse/pages/resultats/user_score.dart';
 import 'package:flutter_app_grifforhse/pages/home/carte_model.dart';
+import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -22,8 +23,8 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            height: 500,
-            width: 400,
+            height: 400,
+            width: 300,
             margin: EdgeInsets.only(top: 30),
             color: card.category.color,
             child: Center(

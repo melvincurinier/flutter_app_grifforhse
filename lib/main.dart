@@ -7,7 +7,6 @@ import 'package:flutter_app_grifforhse/pages/profile/profile.dart';
 import 'package:flutter_app_grifforhse/pages/resultats/user_score.dart';
 import 'package:flutter_app_grifforhse/pages/home/carte_model.dart';
 
-
 void main() {
   runApp(
     MultiProvider(
@@ -16,7 +15,7 @@ void main() {
           create: (context) => UserScore(),
         ),
         ChangeNotifierProvider(
-          create :(context) => CardModel(),
+          create: (context) => CardModel(),
         ),
       ],
       child: MyAPP(),
