@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_app_grifforhse/models/user.dart';
-import 'package:flutter_app_grifforhse/pages/home/home.dart';
+import 'package:flutter_app_grifforhse/pages/home/global.dart';
 import 'package:flutter_app_grifforhse/providers/user_provider.dart';
 import 'package:flutter_app_grifforhse/screens/signup_screen.dart';
 import 'package:flutter_app_grifforhse/utils/constants.dart';
@@ -77,7 +77,7 @@ class AuthService {
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
           navigator.pushAndRemoveUntil(
             MaterialPageRoute(
-              builder: (context) => const HomePage(),
+              builder: (context) => const GlobalApp(),
             ),
             (route) => false,
           );
