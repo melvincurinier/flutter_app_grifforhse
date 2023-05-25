@@ -5,11 +5,20 @@ import 'package:flutter_app_grifforhse/pages/home/home.dart';
 import 'package:flutter_app_grifforhse/pages/resultats/resultats.dart';
 import 'package:flutter_app_grifforhse/pages/profile/profile.dart';
 import 'package:flutter_app_grifforhse/pages/resultats/user_score.dart';
+import 'package:flutter_app_grifforhse/pages/home/carte_model.dart';
+
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => UserScore(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => UserScore(),
+        ),
+        ChangeNotifierProvider(
+          create :(context) => CardModel(),
+        ),
+      ],
       child: MyAPP(),
     ),
   );
