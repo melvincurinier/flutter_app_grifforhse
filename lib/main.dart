@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+
+import 'package:flutter_app_grifforhse/pages/home/home.dart';
 import 'package:flutter_app_grifforhse/providers/user_provider.dart';
-import 'package:flutter_app_grifforhse/screens/home_screen.dart';
 import 'package:flutter_app_grifforhse/screens/signup_screen.dart';
 import 'package:flutter_app_grifforhse/services/auth_service.dart';
-import 'package:provider/provider.dart';
+
 
 void main() {
   runApp(
@@ -40,8 +43,8 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
       ),
       home: Provider.of<UserProvider>(context).user.token.isEmpty
-          ? const SignupScreen()
-          : const HomeScreen(),
+          ? const HomePage()
+          : const SignupScreen(),
     );
   }
 }
