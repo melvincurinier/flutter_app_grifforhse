@@ -1,16 +1,32 @@
 # flutter_app_grifforhse
 
-A new Flutter project.
+## Documentation
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
+Quelques ressources :
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Pour obtenir de l'aide pour commencer le développement avec Flutter, consultez la [documentation en ligne](https://docs.flutter.dev/), qui propose des tutoriels, des exemples, des conseils sur le développement mobile et une référence complète de l'API.
+
+# Comment utiliser l'application GrifforHSE :
+
+Depuis le projet : .
+
+## Lancer le serveur NodeJS
+Se déplacer dans le dossier 'server' du projet :
+> cd .\server\
+
+Installer tous les modules nécessaires au bon lancement du serveur :
+> npm install
+
+Lancer le serveur :
+> npm run dev
+
+## Lancer l'application GrifforHSE
+Ouvrir un nouveau terminal.
+
+Installer tous les packages nécessaires au bon fonctionnement de l'application :
+> flutter packages get
+
+Lancer l'application :
+> flutter run

@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
                 height: 400.0,
                 child: TinderSwapCard(
                   orientation: AmassOrientation.BOTTOM,
-                  totalNum: cardModel.cards.length,
+                  totalNum: cardModel.currentCards.length,
                   stackNum: 3,
                   swipeEdge: 4.0,
                   maxWidth: MediaQuery.of(context).size.width * 0.9,
@@ -45,12 +45,12 @@ class _HomePageState extends State<HomePage> {
                   minWidth: MediaQuery.of(context).size.width * 0.8,
                   minHeight: MediaQuery.of(context).size.width * 0.8,
                   cardBuilder: (context, index) => Card(
-                    color: cardModel.cards[index].category.color,
+                    color: cardModel.currentCards[index].category.color,
                     child: Center(
                       child: Padding(
                         padding: EdgeInsets.all(20),
                         child: Text(
-                          cardModel.cards[index].content,
+                          cardModel.currentCards[index].content,
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
@@ -67,8 +67,8 @@ class _HomePageState extends State<HomePage> {
                     /// Get orientation & index of swiped card!
                     if (orientation == CardSwipeOrientation.RIGHT) {
                        userScore.updateScore(
-                           cardModel.cards[index].category.name,
-                           cardModel.cards[index].value);
+                           cardModel.currentCards[index].category.name,
+                           cardModel.currentCards[index].value);
                       cardModel.nextCard();
                     }
                     if (orientation == CardSwipeOrientation.LEFT) {
@@ -102,8 +102,8 @@ class _HomePageState extends State<HomePage> {
                       onPressed: () {
                          userScore.updateScore(
                              cardModel
-                                 .cards[cardModel.currentIndex].category.name,
-                             cardModel.cards[cardModel.currentIndex].value);
+                                 .currentCards[cardModel.currentIndex].category.name,
+                             cardModel.currentCards[cardModel.currentIndex].value);
                         cardController.triggerRight();
                         cardModel.nextCard();
                       }),

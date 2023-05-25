@@ -20,7 +20,8 @@ class CardData {
 class CardModel with ChangeNotifier {
   int currentIndex = 0;
   List<CardCategory> categories = [];
-  List<CardData> cards = [];
+  List<CardData> initialCards = [];
+  List<CardData> currentCards = [];
 
   CardModel() {
     _initCategories();
@@ -36,22 +37,38 @@ class CardModel with ChangeNotifier {
   }
 
   void _initCards() {
-    cards = [
-      CardData('Sur votre lieux de travail: Les zones sales sont elles séparé des zones propres ?', 1, categories[0]),
-      CardData('L\'accès au local poubelle passe-t-il par les cuisines ?', 1, categories[0]),
-      CardData('Les sanitaires des clients sont-ils différents de ceux du personnel ?', 1, categories[0]),
-      CardData('Y-a-t\'il à votre disposition des bacs de trie ?', 1, categories[2]),
-      CardData('Portez-vous des équipements de protection obligatoire types bouchons d\'oreilles, casque ou gants ?', 1, categories[1]),
-      CardData('Vous êtes arrivé à la fin des propositions.\n(Vous pouvez arrettez de swiper)', 0, CardCategory('Fin', Colors.grey)),
+    initialCards = [
+      CardData(
+          'Sur votre lieux de travail: Les zones sales sont elles séparé des zones propres ?',
+          1,
+          categories[0]),
+      CardData('L\'accès au local poubelle passe-t-il par les cuisines ?', 1,
+          categories[0]),
+      CardData(
+          'Les sanitaires des clients sont-ils différents de ceux du personnel ?',
+          1,
+          categories[0]),
+      CardData(
+          'Y-a-t\'il à votre disposition des bacs de trie ?', 1, categories[2]),
+      CardData(
+          'Portez-vous des équipements de protection obligatoire types bouchons d\'oreilles, casque ou gants ?',
+          1,
+          categories[1]),
+      CardData(
+          'Vous êtes arrivé à la fin des propositions.\n(Vous pouvez arrettez de swiper)',
+          0,
+          CardCategory('Fin', Colors.grey)),
     ];
+
+    currentCards = List<CardData>.from(initialCards);
   }
 
   CardData getCurrentCard() {
-    return cards[currentIndex];
+    return currentCards[currentIndex];
   }
 
   void nextCard() {
-    if (currentIndex < cards.length - 1) {
+    if (currentIndex < currentCards.length - 1) {
       currentIndex++;
     }
     notifyListeners();
@@ -59,6 +76,7 @@ class CardModel with ChangeNotifier {
 
   void reset() {
     currentIndex = 0;
+    currentCards = List<CardData>.from(initialCards);
     notifyListeners();
   }
 }

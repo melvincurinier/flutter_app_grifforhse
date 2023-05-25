@@ -3,14 +3,27 @@ import 'package:flutter_app_grifforhse/pages/home/carte_model.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_app_grifforhse/pages/resultats/user_score.dart';
 
-class SettingsPage extends StatelessWidget {
+class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
 
-  void resetScoreAndCards(BuildContext context) {
+  @override
+  _SettingsPageState createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
+
+  void resetScoreAndCards() {
     Provider.of<UserScore>(context, listen: false).reset();
     Provider.of<CardModel>(context, listen: false).reset();
-  }
 
+  ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Les cartes et les scores ont été réinitialisés.'),
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,7 +114,7 @@ class SettingsPage extends StatelessWidget {
               ),
             ),
             child: Text(buttonText),
-            onPressed: () => resetScoreAndCards(context),
+            onPressed: () => resetScoreAndCards(),
           ),
         ],
       ),

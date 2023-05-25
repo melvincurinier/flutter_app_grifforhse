@@ -11,20 +11,20 @@ class AboutPage extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          _buildDeveloperCard('BRISSET', 'Hugo'),
-          _buildDeveloperCard('CURINIER', 'Melvin'),
-          _buildDeveloperCard('DHUME', 'Tilian'),
+          _buildDeveloperCard('BRISSET', 'Hugo','hugo.jpg'),
+          _buildDeveloperCard('CURINIER', 'Melvin','melvin.jpg'),
+          _buildDeveloperCard('DHUME', 'Tillian','tillian.jpg'),
         ],
       ),
     );
   }
 
-  Widget _buildDeveloperCard(String nom, String prenom, /*String imagePath*/) {
+  Widget _buildDeveloperCard(String nom, String prenom, String imagePath) {
     return Card(
       color: Colors.blue,
       child: ListTile(
         leading: CircleAvatar(
-          //backgroundImage: AssetImage(imagePath),
+          backgroundImage: AssetImage('assets/$imagePath'),
           radius: 30,
         ),
         title: Text(
