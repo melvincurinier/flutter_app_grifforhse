@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class UserScore extends ChangeNotifier {
-  int _score = 0;
-  int get score => _score;
+class UserScore with ChangeNotifier {
+  Map<String, int> scores = {};
 
-  void updateScore(int score) {
-    _score += score;
+  void updateScore(String category, int value) {
+    if (!scores.containsKey(category)) {
+      scores[category] = 0;
+    }
+    scores[category] = scores[category]! + value;
     notifyListeners();
   }
 
+  int getScore(String category) {
+    return scores.containsKey(category) ? scores[category]! : 0;
+  }
+
   void reset() {
-    _score = 0;
+    scores.clear();
     notifyListeners();
   }
 }

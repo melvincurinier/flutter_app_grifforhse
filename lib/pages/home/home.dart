@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
             height: 500,
             width: 400,
             margin: EdgeInsets.only(top: 30),
-            color: card.color,
+            color: card.category.color,
             child: Center(
               child: Padding(
                 padding: EdgeInsets.all(20),
@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
               IconButton(
                   icon: Icon(Icons.favorite),
                   onPressed: () {
-                    userScore.updateScore(card.value);
+                    userScore.updateScore(card.category.name, card.value);
                     cardModel.nextCard();
                   }
                   // Action à effectuer lorsque le bouton avec le cœur est pressé
