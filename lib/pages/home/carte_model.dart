@@ -42,7 +42,7 @@ class CardModel with ChangeNotifier {
       CardData('Les sanitaires des clients sont-ils différents de ceux du personnel ?', 1, categories[0]),
       CardData('Y-a-t\'il à votre disposition des bacs de trie ?', 1, categories[2]),
       CardData('Portez-vous des équipements de protection obligatoire types bouchons d\'oreilles, casque ou gants ?', 1, categories[1]),
-      CardData('Vous êtes arrivé à la fin des propositions.', 0, CardCategory('Fin', Colors.grey)),
+      CardData('Vous êtes arrivé à la fin des propositions.\n(Vous pouvez arrettez de swiper)', 0, CardCategory('Fin', Colors.grey)),
     ];
   }
 
