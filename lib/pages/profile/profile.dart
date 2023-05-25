@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_grifforhse/pages/profile/about.dart';
 import 'package:flutter_app_grifforhse/pages/profile/settings.dart';
+import 'package:flutter_app_grifforhse/providers/user_provider.dart';
+import 'package:provider/provider.dart';
+
+import '../../services/auth_service.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -10,12 +14,15 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final String name = 'John Doe';
-  final String pseudo = 'johndoe123';
-  final String email = 'johndoe@example.com';
 
+    void signOutUser(BuildContext context) {
+    AuthService().signOut(context);
+  }
+  
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<UserProvider>(context).user;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Profile Page'),
@@ -24,15 +31,11 @@ class _ProfilePageState extends State<ProfilePage> {
         children: <Widget>[
           ListTile(
             title: Text('Name'),
-            subtitle: Text(name),
-          ),
-          ListTile(
-            title: Text('Pseudo'),
-            subtitle: Text(pseudo),
+            subtitle: Text(user.name),
           ),
           ListTile(
             title: Text('Email'),
-            subtitle: Text(email),
+            subtitle: Text(user.email),
           ),
         ],
       ),
@@ -68,9 +71,26 @@ class _ProfilePageState extends State<ProfilePage> {
                     MaterialPageRoute(builder: (context) => AboutPage()));
               },
             ),
+            ElevatedButton(
+            onPressed: () => signOutUser(context),
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(Colors.blue),
+              textStyle: MaterialStateProperty.all(
+                const TextStyle(color: Colors.white),
+              ),
+              minimumSize: MaterialStateProperty.all(
+                Size(MediaQuery.of(context).size.width / 2.5, 50),
+              ),
+            ),
+            child: const Text(
+              "Sign Out",
+              style: TextStyle(color: Colors.white, fontSize: 16),
+            ),
+          ),
           ],
         ),
       ),
+      
     );
   }
 }

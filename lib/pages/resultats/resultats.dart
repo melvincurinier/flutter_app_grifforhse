@@ -28,19 +28,34 @@ class ResultPage extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _buildScoreBar(String category, Color color, int score, int maxScore) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: FAProgressBar(
-        currentValue: score.toDouble() / maxScore.toDouble() * 100.0,
-        maxValue: 100,
-        size: 50,
-        direction: Axis.horizontal,
-        backgroundColor: color.withOpacity(0.70) ,
-        progressColor: color,
-        displayText: '%',
-      ),
-    );
-  }
+Widget _buildScoreBar(String category, Color color, int score, int maxScore) {
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          category,
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        SizedBox(
+            height:
+                5), // Optionnel, pour ajouter un espace entre le titre et la barre
+        FAProgressBar(
+          currentValue: score.toDouble() / maxScore.toDouble() * 100.0,
+          maxValue: 100,
+          size: 50,
+          direction: Axis.horizontal,
+          backgroundColor: color.withOpacity(0.70),
+          progressColor: color,
+          displayText: '%',
+        ),
+      ],
+    ),
+  );
 }
