@@ -19,40 +19,32 @@ class CardData {
 
 class CardModel with ChangeNotifier {
   int currentIndex = 0;
+  List<CardCategory> categories = [];
+  List<CardData> cards = [];
 
+  CardModel() {
+    _initCategories();
+    _initCards();
+  }
 
-  List<CardData> cards = [
-    CardData(
-        'Sur votre lieux de travail: Les zones sales sont elles séparé des zones propres ?',
-        1,
-        CardCategory('Hygiène', Colors.blue)
-      ),
-    CardData(
-        'L\'accès au local poubelle passe-t-il par les cuisines ?',
-        1,
-        CardCategory('Hygiène', Colors.blue)
-      ),
-    CardData(
-        'Les sanitaires des clients sont-ils différents de ceux du personel ?',
-        1,
-        CardCategory('Hygiène', Colors.blue)
-      ),
-      CardData(
-        'Y-a-t\'il a votre disposition des bacs de trie ?',
-        1,
-        CardCategory('Environnement', Colors.green)
-      ),
-      CardData(
-        'Portez vous des équipements de protection obligatoire types bouchons d\'oreils, casque ou gants ?',
-        1,
-        CardCategory('Sécurité', Colors.red)
-      ),
-    CardData(
-        'Vous êtes arrivez a la fin des propositions.',
-        0,
-      CardCategory('Fin', Colors.grey)
-      ),
-  ];
+  void _initCategories() {
+    categories = [
+      CardCategory('Hygiène', Colors.blue),
+      CardCategory('Sécurité', Colors.red),
+      CardCategory('Environnement', Colors.green),
+    ];
+  }
+
+  void _initCards() {
+    cards = [
+      CardData('Sur votre lieux de travail: Les zones sales sont elles séparé des zones propres ?', 1, categories[0]),
+      CardData('L\'accès au local poubelle passe-t-il par les cuisines ?', 1, categories[0]),
+      CardData('Les sanitaires des clients sont-ils différents de ceux du personnel ?', 1, categories[0]),
+      CardData('Y-a-t\'il à votre disposition des bacs de trie ?', 1, categories[2]),
+      CardData('Portez-vous des équipements de protection obligatoire types bouchons d\'oreilles, casque ou gants ?', 1, categories[1]),
+      CardData('Vous êtes arrivé à la fin des propositions.', 0, CardCategory('Fin', Colors.grey)),
+    ];
+  }
 
   CardData getCurrentCard() {
     return cards[currentIndex];
