@@ -39,21 +39,29 @@ class CardModel with ChangeNotifier {
   void _initCards() {
     initialCards = [
       CardData(
+          'Portez-vous des équipements de protection obligatoire (EPI) types bouchons d\'oreilles, casque ou gants ?',
+          1,
+          categories[1]),
+      CardData(
           'Sur votre lieux de travail: Les zones sales sont elles séparé des zones propres ?',
           1,
           categories[0]),
+      CardData(
+          'Y-a-t\'il à votre disposition des bacs de trie ?', 1, categories[2]),
       CardData('L\'accès au local poubelle passe-t-il par les cuisines ?', 1,
           categories[0]),
+      CardData('Changez vous de masque a chaque opération ?', 1, categories[2]),
       CardData(
           'Les sanitaires des clients sont-ils différents de ceux du personnel ?',
           1,
           categories[0]),
       CardData(
-          'Y-a-t\'il à votre disposition des bacs de trie ?', 1, categories[2]),
-      CardData(
-          'Portez-vous des équipements de protection obligatoire types bouchons d\'oreilles, casque ou gants ?',
+          'Le sol de l\'usine est il recouvert d\'un revetement antidérapents ?',
           1,
           categories[1]),
+      CardData('Les machines sont elles souvent entretenu ?', 1, categories[1]),
+      CardData(
+          'Changez vous de gants après chaque clients ?', 1, categories[2]),
       CardData(
           'Vous êtes arrivé à la fin des propositions.\n(Vous pouvez arrettez de swiper)',
           0,
