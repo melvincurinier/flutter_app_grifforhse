@@ -29,4 +29,4 @@ Installer tous les packages nécessaires au bon fonctionnement de l'application 
 > flutter packages get
 
 Lancer l'application :
-> flutter run
+> flutter run --no-sound-null-safety
